@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .title {
+        text-align: center;
+    }
+
+    .box {
+        border: 1px solid black;
+        width: 900px;
+        margin: 50px auto;
+        height: 300px;
+
+    }
+
+    .div {
+        width: 100px;
+        height: 50px;
+    }
+
+    .box h2,
+    p,
+    a {
+        margin-left: 30px;
+    }
+
+    .pagi {
+        margin-left: 1100px;
+    }
+</style>
+<h1 class="title">POSTS</h1>
+
+{% for post in post_list %}
+
+<div class="box">
+    <h2>{{post.title}}</h2>
+    <p>{{post.author}} | {{post.created_on}}</p>
+    <hr>
+    <p>{{post.content|slice:":200" }}</p>
+    <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
+</div>
+{% endfor %}
+<div class="pagi">
+    {% if is_paginated %}
+    <nav aria-label="Page navigation conatiner"></nav>
+    <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+        <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+        {% endif %}
+        {% if page_obj.has_next %}
+        <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+
+        {% endif %}
+    </ul>
+    </nav>
+</div>
+<div class="div"></div>
+{% endif %}
+
+{% endblock content %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+    .box {
+        width: 900px;
+        height: 500px;
+        border: 1px solid black;
+        margin: 50px auto;
+        padding: 50px;
+    }
+</style>
+
+<div class="box">
+    <h2>{% block title %} {{ object.title }} {% endblock title %}</h2>
+    <p>{{ post.author }} | {{ post.created_on }}</p>
+    <hr>
+    <p>{{ object.content | safe }}</p>
+</div>
+
+{% endblock content %}

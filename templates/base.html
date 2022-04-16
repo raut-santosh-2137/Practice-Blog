@@ -1,0 +1,76 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+</head>
+
+<body>
+    <style>
+        body {
+            font-size: 17px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+
+        }
+
+        .logo {
+            width: 300px;
+            font-size: 50px;
+            margin-left: 50px;
+            text-decoration: none;
+        }
+
+        ul {
+            width: 200px;
+            display: flex;
+            justify-content: space-between;
+            list-style-type: none;
+            margin-right: 50px;
+        }
+
+        li {
+            color: blue;
+            font-size: 20px;
+        }
+
+        footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: blue;
+            color: white;
+            text-align: center;
+        }
+    </style>
+    <nav>
+        <div>
+            <a class="logo" href="{% url 'home' %}">Santosh Raut</a>
+        </div>
+        <div>
+            <ul>
+                <li>About</li>
+                <li>Contact</li>
+                <li>Policy</li>
+            </ul>
+        </div>
+
+    </nav>
+    <hr>
+    {% block content %}
+    {% endblock content %}
+    <footer>
+        <!-- <hr> -->
+        <p>Copyright &copy by santosh raut</p>
+    </footer>
+</body>
+
+</html>
